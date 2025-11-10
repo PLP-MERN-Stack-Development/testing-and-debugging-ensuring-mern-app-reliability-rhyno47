@@ -1,23 +1,20 @@
 // jest.config.js - Root Jest configuration file
-
 module.exports = {
   // Base configuration for all tests
   projects: [
-    // Server-side tests configuration
+    // Backend (no external DB): week-6-mern-assignment/backend
     {
-      displayName: 'server',
+      displayName: 'backend',
       testEnvironment: 'node',
-      testMatch: ['<rootDir>/server/tests/**/*.test.js'],
+      testMatch: ['<rootDir>/week-6-mern-assignment/backend/tests/**/*.test.js'],
       moduleFileExtensions: ['js', 'json', 'node'],
-      setupFilesAfterEnv: ['<rootDir>/server/tests/setup.js'],
-      coverageDirectory: '<rootDir>/coverage/server',
+      coverageDirectory: '<rootDir>/coverage/backend',
       collectCoverageFrom: [
-        'server/src/**/*.js',
-        '!server/src/config/**',
+        'week-6-mern-assignment/backend/src/**/*.js',
         '!**/node_modules/**',
       ],
     },
-    
+
     // Client-side tests configuration
     {
       displayName: 'client',
@@ -30,7 +27,7 @@ module.exports = {
       },
       setupFilesAfterEnv: ['<rootDir>/client/src/tests/setup.js'],
       transform: {
-        '^.+\\.(js|jsx)$': 'babel-jest',
+        '^.+\\\.(js|jsx)$': 'babel-jest',
       },
       coverageDirectory: '<rootDir>/coverage/client',
       collectCoverageFrom: [
@@ -40,7 +37,7 @@ module.exports = {
       ],
     },
   ],
-  
+
   // Global configuration
   verbose: true,
   collectCoverage: true,
